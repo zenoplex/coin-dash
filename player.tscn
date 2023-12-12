@@ -1,0 +1,75 @@
+[gd_scene load_steps=14 format=3 uid="uid://dv1kbrsm8ktxv"]
+
+[ext_resource type="Texture2D" uid="uid://ilcms6ypbamt" path="res://player/hurt/player-hurt-1.png" id="1_3bms1"]
+[ext_resource type="Texture2D" uid="uid://cu1y8oawdriyl" path="res://player/hurt/player-hurt-2.png" id="2_tb0s7"]
+[ext_resource type="Texture2D" uid="uid://b2vh1ghqq4afj" path="res://player/idle/player-idle-1.png" id="3_isdhn"]
+[ext_resource type="Texture2D" uid="uid://c6urdigc7ktej" path="res://player/idle/player-idle-2.png" id="4_7j5p1"]
+[ext_resource type="Texture2D" uid="uid://db3mhwn37nlg2" path="res://player/idle/player-idle-3.png" id="5_385d4"]
+[ext_resource type="Texture2D" uid="uid://w3skrk32tdne" path="res://player/idle/player-idle-4.png" id="6_0qu3r"]
+[ext_resource type="Texture2D" uid="uid://dbrqx2ja1hpli" path="res://player/run/player-run-1.png" id="7_8lot7"]
+[ext_resource type="Texture2D" uid="uid://bx01byd5aghhm" path="res://player/run/player-run-2.png" id="8_2mbm8"]
+[ext_resource type="Texture2D" uid="uid://bsu7ggd4x1ran" path="res://player/run/player-run-3.png" id="9_to3br"]
+[ext_resource type="Texture2D" uid="uid://b4ollbbta2w8g" path="res://player/run/player-run-4.png" id="10_cmy48"]
+[ext_resource type="Texture2D" uid="uid://brbaq08w3e03r" path="res://player/run/player-run-5.png" id="11_t5wl1"]
+[ext_resource type="Texture2D" uid="uid://ckg3qx8o4t5g7" path="res://player/run/player-run-6.png" id="12_m4bqe"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rdrop"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_3bms1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_tb0s7")
+}],
+"loop": true,
+"name": &"hurt",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_isdhn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_7j5p1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_385d4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_0qu3r")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_8lot7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_2mbm8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_to3br")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_cmy48")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_t5wl1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_m4bqe")
+}],
+"loop": true,
+"name": &"run",
+"speed": 8.0
+}]
+
+[node name="Player" type="Area2D"]
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_rdrop")
+animation = &"run"
