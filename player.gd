@@ -18,3 +18,14 @@ func _process(delta: float) -> void:
   
   if velocity.x != 0:
     $AnimatedSprite2D.flip_h = velocity.x < 0
+
+func start() -> void:
+  print_debug("start")
+  set_process(true)
+  position = screensize / 2
+  $AnimatedSprite2D.animation = "idle"
+
+func end() -> void:
+  $AnimatedSprite2D.animation = "hurt"
+  set_process(false)
+  
