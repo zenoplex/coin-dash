@@ -1,5 +1,8 @@
 extends Area2D
 
+signal pickup
+signal hurt
+
 @export var speed:int = 350;
 
 var velocity:Vector2 = Vector2.ZERO
@@ -29,3 +32,11 @@ func end() -> void:
   $AnimatedSprite2D.animation = "hurt"
   set_process(false)
   
+func _on_area_entered(area:Area2D) -> void:
+  if area.is_in_group("coins"):
+    area.pickup()
+    pickup.emit()
+
+  if area.is_in_group("obstacles"):
+    hurt.emit()
+    end()
