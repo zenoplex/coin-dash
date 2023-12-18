@@ -21,9 +21,10 @@ func _process(_delta:float) -> void:
 		
 func _on_game_timer_timeout() -> void:
 	time_left -= 1
-	$HUD.update_timer(time_left)
 	if time_left <= 0:
-		game_over()
+		return game_over()
+	
+	$HUD.update_timer(time_left)
 
 func _on_hud_start_game() -> void:
 	new_game()
@@ -52,6 +53,7 @@ func game_over() -> void:
 	get_tree().call_group("coins", "queue_free")
 	$HUD.show_game_over()
 	$Player.end()
+	$GameTimer.stop()
 
 # Span number of coins to level
 func spawn_coins() -> void:
