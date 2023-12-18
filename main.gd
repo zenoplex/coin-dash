@@ -10,6 +10,7 @@ var screensize: Vector2 = Vector2.ZERO
 var is_playing: bool = false
 
 func _ready() -> void:
+	screensize = get_viewport().get_visible_rect().size
 	$Player.hide()
 
 func _process(_delta:float) -> void:
@@ -32,7 +33,6 @@ func new_game() -> void:
 	level = 1
 	score = 0
 	time_left = play_time
-	screensize = get_viewport().get_visible_rect().size
 	$Player.start()
 	$Player.show()
 	$GameTimer.start()
