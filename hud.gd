@@ -14,3 +14,8 @@ func show_message(text: String) -> void:
 
 func _on_timer_timeout() -> void:
 	$Message.hide()
+
+func _on_start_button_pressed() -> void:
+	$StartButton.hide()
+	$Message.hide()
+	start_game.emit()
