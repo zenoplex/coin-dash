@@ -28,6 +28,14 @@ func _on_game_timer_timeout() -> void:
 func _on_hud_start_game() -> void:
 	new_game()
 
+func _on_player_pickup() -> void:
+	score += 1
+	$HUD.update_score(score)
+
+func _on_player_hurt() -> void:
+	game_over()
+	
+
 func new_game() -> void:
 	is_playing = true
 	level = 1
