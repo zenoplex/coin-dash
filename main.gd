@@ -21,11 +21,11 @@ func _process(_delta:float) -> void:
 		
 func _on_game_timer_timeout() -> void:
 	time_left -= 1
-	if time_left <= 0:
-		return game_over()
-	
 	$HUD.update_timer(time_left)
-
+	
+	if time_left <= 0:
+		game_over()
+	
 func _on_hud_start_game() -> void:
 	new_game()
 
@@ -36,7 +36,6 @@ func _on_player_pickup() -> void:
 func _on_player_hurt() -> void:
 	game_over()
 	
-
 func new_game() -> void:
 	is_playing = true
 	level = 1
@@ -46,6 +45,9 @@ func new_game() -> void:
 	$Player.show()
 	$GameTimer.start()
 	spawn_coins()	
+
+	$HUD.update_score(score)
+	$HUD.update_timer(time_left)
 		
 func game_over() -> void:
 	is_playing = false
