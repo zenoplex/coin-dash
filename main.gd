@@ -8,3 +8,12 @@ var score: int = 0
 var time_left: int = 0
 var screensize: Vector2 = Vector2.ZERO
 var playing: bool = false
+
+func _ready() -> void:
+	playing = true
+	level = 1
+	score = 0
+	time_left = play_time
+	$Player.start()
+	$Player.show()
+	$GameTimer.start()
