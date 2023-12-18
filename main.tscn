@@ -9,6 +9,7 @@
 [node name="Main" type="Node"]
 script = ExtResource("1_iwtqf")
 coin_scene = ExtResource("2_vqrti")
+play_time = null
 
 [node name="Background" type="TextureRect" parent="."]
 anchors_preset = 15
@@ -24,3 +25,6 @@ stretch_mode = 1
 [node name="GameTimer" type="Timer" parent="."]
 
 [node name="HUD" parent="." instance=ExtResource("5_kv0gx")]
+
+[connection signal="timeout" from="GameTimer" to="." method="_on_game_timer_timeout"]
+[connection signal="start_game" from="HUD" to="." method="_on_hud_start_game"]

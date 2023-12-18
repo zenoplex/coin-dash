@@ -10,6 +10,24 @@ var screensize: Vector2 = Vector2.ZERO
 var is_playing: bool = false
 
 func _ready() -> void:
+	$Player.hide()
+
+func _process(_delta:float) -> void:
+	if is_playing and get_tree().get_nodes_in_group("coins").size() == 0:
+		level += 1
+		time_left += 5
+		spawn_coins()
+		
+func _on_game_timer_timeout() -> void:
+	time_left -= 1
+	$HUD.update_timer(time_left)
+	if time_left <= 0:
+		game_over()
+
+func _on_hud_start_game() -> void:
+	new_game()
+
+func new_game() -> void:
 	is_playing = true
 	level = 1
 	score = 0
@@ -18,7 +36,14 @@ func _ready() -> void:
 	$Player.start()
 	$Player.show()
 	$GameTimer.start()
-	spawn_coins()
+	spawn_coins()	
+		
+func game_over() -> void:
+	is_playing = false
+	# Remove all coins
+	get_tree().call_group("coins", "queue_free")
+	$HUD.show_game_over()
+	$Player.end()
 
 # Span number of coins to level
 func spawn_coins() -> void:
@@ -28,8 +53,3 @@ func spawn_coins() -> void:
 		node.position = Vector2(randi_range(0, int(screensize.x)), randi_range(0, int(screensize.y)))
 		add_child(node);
 
-func _process(_delta:float) -> void:
-	if is_playing and get_tree().get_nodes_in_group("coins").size() == 0:
-		level += 1
-		time_left += 5
-		spawn_coins()
