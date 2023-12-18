@@ -28,3 +28,8 @@ func spawn_coins() -> void:
 		node.position = Vector2(randi_range(0, int(screensize.x)), randi_range(0, int(screensize.y)))
 		add_child(node);
 
+func _process(_delta:float) -> void:
+	if is_playing and get_tree().get_nodes_in_group("coins").size() == 0:
+		level += 1
+		time_left += 5
+		spawn_coins()
