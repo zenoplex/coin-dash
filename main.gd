@@ -6,11 +6,11 @@ extends Node
 var level: int = 1
 var score: int = 0
 var time_left: int = 0
-var screensize: Vector2 = Vector2.ZERO
-var playing: bool = false
+var screensize: Vector2 = Vector2.ZERO 
+var is_playing: bool = false
 
 func _ready() -> void:
-	playing = true
+	is_playing = true
 	level = 1
 	score = 0
 	time_left = play_time
@@ -20,6 +20,7 @@ func _ready() -> void:
 	$GameTimer.start()
 	spawn_coins()
 
+# Span number of coins to level
 func spawn_coins() -> void:
 	for i in level + 4:
 		var node:Node = coin_scene.instantiate()
