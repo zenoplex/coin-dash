@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://hpk7uofkwdnx"]
+[gd_scene load_steps=10 format=3 uid="uid://hpk7uofkwdnx"]
 
 [ext_resource type="Texture2D" uid="uid://cluw8v22pypeg" path="res://grass.png" id="1_d6263"]
 [ext_resource type="Script" path="res://main.gd" id="1_iwtqf"]
 [ext_resource type="PackedScene" uid="uid://dv1kbrsm8ktxv" path="res://player.tscn" id="2_ntbnl"]
 [ext_resource type="PackedScene" uid="uid://vhesnra0vi5g" path="res://coin.tscn" id="2_vqrti"]
+[ext_resource type="PackedScene" uid="uid://cbneafhr271hp" path="res://powerup.tscn" id="3_bvf2a"]
 [ext_resource type="PackedScene" uid="uid://c70cumv0u7l3u" path="res://hud.tscn" id="5_kv0gx"]
 [ext_resource type="AudioStream" uid="uid://takyog3k0tbs" path="res://audio/Level.wav" id="6_oda5j"]
 [ext_resource type="AudioStream" uid="uid://d03tvi61dmyds" path="res://audio/EndSound.wav" id="7_ep23y"]
@@ -12,6 +13,8 @@
 [node name="Main" type="Node"]
 script = ExtResource("1_iwtqf")
 coin_scene = ExtResource("2_vqrti")
+powerup_scene = ExtResource("3_bvf2a")
+play_time = null
 
 [node name="Background" type="TextureRect" parent="."]
 anchors_preset = 15
@@ -25,6 +28,9 @@ stretch_mode = 1
 [node name="Player" parent="." instance=ExtResource("2_ntbnl")]
 
 [node name="GameTimer" type="Timer" parent="."]
+
+[node name="PowerupTimer" type="Timer" parent="."]
+one_shot = true
 
 [node name="HUD" parent="." instance=ExtResource("5_kv0gx")]
 
@@ -40,4 +46,5 @@ stream = ExtResource("8_ywrmq")
 [connection signal="hurt" from="Player" to="." method="_on_player_hurt"]
 [connection signal="pickup" from="Player" to="." method="_on_player_pickup"]
 [connection signal="timeout" from="GameTimer" to="." method="_on_game_timer_timeout"]
+[connection signal="timeout" from="PowerupTimer" to="." method="_on_powerup_timer_timeout"]
 [connection signal="start_game" from="HUD" to="." method="_on_hud_start_game"]
