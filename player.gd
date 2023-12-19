@@ -1,5 +1,6 @@
 extends Area2D
 
+# emits type "coin" | "powerup"
 signal pickup
 signal hurt
 
@@ -35,8 +36,10 @@ func end() -> void:
 func _on_area_entered(area:Area2D) -> void:
   if area.is_in_group("coins"):
     area.pickup()
-    pickup.emit()
-
-  if area.is_in_group("obstacles"):
+    pickup.emit("coin")
+  elif area.is_in_group("powerups"):
+    area.pickup()
+    pickup.emit("powerup")
+  elif area.is_in_group("obstacles"):
     hurt.emit()
     end()
