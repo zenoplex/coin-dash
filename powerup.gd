@@ -1,5 +1,7 @@
 extends Area2D
 
+var screensize:Vector2 = Vector2.ZERO
+
 func pickup() -> void:
 	# Wait for the current frame to finish
 	$CollisionShape2D.set_deferred("disabled", true)
