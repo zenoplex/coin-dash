@@ -1,0 +1,65 @@
+[gd_scene load_steps=13 format=3 uid="uid://cbneafhr271hp"]
+
+[ext_resource type="Texture2D" uid="uid://cs4mkfi453a4s" path="res://pow/pow-frame-1.png" id="1_y6ctj"]
+[ext_resource type="Texture2D" uid="uid://dl2dc5k3vg2sa" path="res://pow/pow-frame-2.png" id="2_nu1eb"]
+[ext_resource type="Texture2D" uid="uid://bvvbsn5f1qugl" path="res://pow/pow-frame-3.png" id="3_ncate"]
+[ext_resource type="Texture2D" uid="uid://4y61koxrd11c" path="res://pow/pow-frame-4.png" id="4_06d8r"]
+[ext_resource type="Texture2D" uid="uid://dkaoyfscxqfeb" path="res://pow/pow-frame-5.png" id="5_2rf71"]
+[ext_resource type="Texture2D" uid="uid://1w2hb0ddsk88" path="res://pow/pow-frame-6.png" id="6_qtova"]
+[ext_resource type="Texture2D" uid="uid://b4o41643ldh7i" path="res://pow/pow-frame-7.png" id="7_wh1be"]
+[ext_resource type="Texture2D" uid="uid://bq5j0e15c2mrm" path="res://pow/pow-frame-8.png" id="8_ri712"]
+[ext_resource type="Texture2D" uid="uid://ceh4vto8iqx6s" path="res://pow/pow-frame-9.png" id="9_tw1wb"]
+[ext_resource type="Texture2D" uid="uid://ct0oipdgg5aph" path="res://pow/pow-frame-10.png" id="10_a7h7f"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f5631"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_y6ctj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_nu1eb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ncate")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_06d8r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_2rf71")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_qtova")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_wh1be")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ri712")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_tw1wb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_a7h7f")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3jbll"]
+radius = 50.0
+
+[node name="Powerup" type="Area2D" groups=["powerups"]]
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_f5631")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.4, 0.4)
+shape = SubResource("CircleShape2D_3jbll")
