@@ -74,6 +74,7 @@ size = Vector2(30, 44)
 [node name="Player" type="Area2D"]
 texture_filter = 1
 script = ExtResource("1_5hk0b")
+speed = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2, 2)
