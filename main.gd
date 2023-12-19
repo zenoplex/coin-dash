@@ -32,6 +32,7 @@ func _on_hud_start_game() -> void:
 func _on_player_pickup() -> void:
 	score += 1
 	$HUD.update_score(score)
+	$CoinSound.play()
 
 func _on_player_hurt() -> void:
 	game_over()
@@ -56,6 +57,7 @@ func game_over() -> void:
 	$HUD.show_game_over()
 	$Player.end()
 	$GameTimer.stop()
+	$EndSound.play()
 
 # Span number of coins to level
 func spawn_coins() -> void:
@@ -64,4 +66,5 @@ func spawn_coins() -> void:
 		node.screensize = screensize
 		node.position = Vector2(randi_range(0, int(screensize.x)), randi_range(0, int(screensize.y)))
 		add_child(node);
+	$LevelSound.play()
 
