@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://hpk7uofkwdnx"]
+[gd_scene load_steps=11 format=3 uid="uid://hpk7uofkwdnx"]
 
 [ext_resource type="Texture2D" uid="uid://cluw8v22pypeg" path="res://grass.png" id="1_d6263"]
 [ext_resource type="Script" path="res://main.gd" id="1_iwtqf"]
@@ -9,12 +9,12 @@
 [ext_resource type="AudioStream" uid="uid://takyog3k0tbs" path="res://audio/Level.wav" id="6_oda5j"]
 [ext_resource type="AudioStream" uid="uid://d03tvi61dmyds" path="res://audio/EndSound.wav" id="7_ep23y"]
 [ext_resource type="AudioStream" uid="uid://pgtgulp6evxj" path="res://audio/Coin.wav" id="8_ywrmq"]
+[ext_resource type="AudioStream" uid="uid://cf2vtxqn31jbv" path="res://audio/Powerup.wav" id="9_q7na0"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_iwtqf")
 coin_scene = ExtResource("2_vqrti")
 powerup_scene = ExtResource("3_bvf2a")
-play_time = null
 
 [node name="Background" type="TextureRect" parent="."]
 anchors_preset = 15
@@ -39,6 +39,9 @@ stream = ExtResource("6_oda5j")
 
 [node name="EndSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_ep23y")
+
+[node name="PowerupSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_q7na0")
 
 [node name="CoinSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_ywrmq")

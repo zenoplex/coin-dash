@@ -33,10 +33,16 @@ func _on_game_timer_timeout() -> void:
 func _on_hud_start_game() -> void:
 	new_game()
 
-func _on_player_pickup() -> void:
-	score += 1
-	$HUD.update_score(score)
-	$CoinSound.play()
+func _on_player_pickup(type: String) -> void:
+	match type:
+		"coin":
+			score += 1
+			$HUD.update_score(score)
+			$CoinSound.play()
+		"powerup":
+			$PowerupSound.play()
+			time_left += 5
+			$HUD.update_timer(time_left)
 
 func _on_player_hurt() -> void:
 	game_over()
@@ -46,8 +52,7 @@ func _on_powerup_timer_timeout() -> void:
 	node.screensize = screensize
 	node.position = Vector2(randi_range(0, int(screensize.x)), randi_range(0, int(screensize.y)))
 	add_child(node)
-	print("Powerup spawned")
-
+	
 func new_game() -> void:
 	is_playing = true
 	level = 1
