@@ -1,5 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://cbneafhr271hp"]
+[gd_scene load_steps=14 format=3 uid="uid://cbneafhr271hp"]
 
+[ext_resource type="Script" path="res://powerup.gd" id="1_7vm12"]
 [ext_resource type="Texture2D" uid="uid://cs4mkfi453a4s" path="res://pow/pow-frame-1.png" id="1_y6ctj"]
 [ext_resource type="Texture2D" uid="uid://dl2dc5k3vg2sa" path="res://pow/pow-frame-2.png" id="2_nu1eb"]
 [ext_resource type="Texture2D" uid="uid://bvvbsn5f1qugl" path="res://pow/pow-frame-3.png" id="3_ncate"]
@@ -11,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://ceh4vto8iqx6s" path="res://pow/pow-frame-9.png" id="9_tw1wb"]
 [ext_resource type="Texture2D" uid="uid://ct0oipdgg5aph" path="res://pow/pow-frame-10.png" id="10_a7h7f"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_f5631"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_jgsas"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -53,11 +54,12 @@ animations = [{
 radius = 50.0
 
 [node name="Powerup" type="Area2D" groups=["powerups"]]
+script = ExtResource("1_7vm12")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.4, 0.4)
-sprite_frames = SubResource("SpriteFrames_f5631")
+sprite_frames = SubResource("SpriteFrames_jgsas")
 autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
