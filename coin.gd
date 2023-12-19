@@ -15,3 +15,9 @@ func pickup() -> void:
 	tween.tween_property(self, "modulate:a", 0.0, 0.3)
 	await tween.finished
 	queue_free()
+
+func _on_area_entered(area:Area2D) -> void:
+	# If the coin is overlapping obstacles move it to a new position
+	if area.is_in_group("obstacles"):
+		position = Vector2(randi_range(0, int(screensize.x)), randi_range(0, int(screensize.y)))
+	
